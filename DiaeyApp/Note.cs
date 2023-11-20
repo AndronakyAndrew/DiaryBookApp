@@ -1,23 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiaeyApp
+namespace DiaryApp
 {
-    public class Task
+    public class Note
     {
         public int Id { get; set; }
         public string TaskName { get; set; }
-        public DateTime DateOfCreation { get; set; }
+        public string DateOfCreation { get; set; }
 
-        public Task(string taskName, DateTime dateOfCreation)
+        public Note(string taskName, string dateOfCreation)
         {
             this.TaskName = taskName;
             this.DateOfCreation = dateOfCreation;
         }
-
     }
 }

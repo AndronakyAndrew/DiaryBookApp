@@ -98,6 +98,8 @@
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
 
+
+
                         <StackPanel>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -123,13 +125,17 @@
                                 <TextBox Name="txtTime" TextChanged="txtTime_TextChanged" Style="{StaticResource textBox_Calendar}"/>
                             </Grid>
 
+                            <DataGrid x:Name="dataGrid" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,40,0,0" />
+
                         </StackPanel>
 
-                        <Button Style="{StaticResource button_cal}" Grid.Column="1">
-                            <fa:ImageAwesome Icon="PlusCircle" Width="28" Height="28" Foreground="#f9f9f9" MouseLeftButtonDown="ImageAwesome_MouseLeftButtonDown" />
+                        <Button Style="{StaticResource button_cal}" Grid.Column="1" Click="SaveButton_Click" Cursor="Hand">
+                            <fa:ImageAwesome Icon="PlusCircle" Width="28" Height="28" Foreground="#f9f9f9" />
                         </Button>
+
                     </Grid>
                 </Border>
+
             </StackPanel>
         </Grid>
 

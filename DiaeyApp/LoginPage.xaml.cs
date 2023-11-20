@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace DiaeyApp
+namespace DiaryApp
 {
 
     public partial class LoginPage : Window
