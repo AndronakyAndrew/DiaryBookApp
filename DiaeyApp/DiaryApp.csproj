@@ -22,6 +22,9 @@
     <None Update="Images\close.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Images\delete-trash-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Images\Email.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -74,11 +74,11 @@
             <StackPanel Grid.Column="1">
                 <!--Titles-->
                 <StackPanel Margin="30 45 30 10" Orientation="Horizontal">
-                    <TextBlock Text="18" FontSize="50" Foreground="#FFFFFF"/>
+                    <TextBlock Text="29" FontSize="50" Foreground="#FFFFFF"/>
 
                     <StackPanel Grid.Column="1" Margin="10 0 0 0" VerticalAlignment="Center">
                         <TextBlock Text="November" Foreground="#FFFFFF" FontSize="24"/>
-                        <TextBlock Text="Saturday" Foreground="#EBA5BB" FontSize="14"/>
+                        <TextBlock Text="Wednesday" Foreground="#EBA5BB" FontSize="14"/>
                     </StackPanel>
 
                     <Button Style="{StaticResource buttonBig}" Margin="112 0 5 0">
@@ -98,7 +98,10 @@
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
 
-
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
 
                         <StackPanel>
                             <Grid>
@@ -125,12 +128,16 @@
                                 <TextBox Name="txtTime" TextChanged="txtTime_TextChanged" Style="{StaticResource textBox_Calendar}"/>
                             </Grid>
 
-                            <DataGrid x:Name="dataGrid" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,40,0,0" />
+                            <DataGrid x:Name="dataGrid" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,40,0,0" IsReadOnly="True"/>
 
                         </StackPanel>
 
-                        <Button Style="{StaticResource button_cal}" Grid.Column="1" Click="SaveButton_Click" Cursor="Hand">
+                        <Button Style="{StaticResource button_cal}" x:Name="SaveButton" Grid.Column="1"  Click="SaveButton_Click" Cursor="Hand" Margin="5">
                             <fa:ImageAwesome Icon="PlusCircle" Width="28" Height="28" Foreground="#f9f9f9" />
+                        </Button>
+
+                        <Button Style="{StaticResource button_cal}" x:Name="DeleteButton" Grid.Column="1" Grid.Row="1" Click="DeleteButton_Click" Cursor="Hand" Margin="5" >
+                            <fa:ImageAwesome Icon="MinusCircle" Width="28" Height="28" Foreground="#f9f9f9" />
                         </Button>
 
                     </Grid>

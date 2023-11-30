@@ -1,10 +1,7 @@
-﻿using DiaeyApp;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using Npgsql;
-using Microsoft.EntityFrameworkCore;
-using System.Xml.Linq;
+using System.Windows.Controls;
 
 namespace DiaryApp
 {
@@ -73,18 +70,47 @@ namespace DiaryApp
             string noteText = txtNote.Text;
             string timeText = txtTime.Text;
 
-            // Создаем новую запись
-            Note note = new Note(noteText, timeText);
+            if (noteText == null)
+            {
+                MessageBox.Show("Введите задачу!");
+            }
+            else
+            {
+                // Создаем новую запись
+                Note note = new Note(noteText, timeText);
 
-            // Добавляем новую запись в базу данных
-            db.Notes.Add(note);
-            db.SaveChanges();
+                // Добавляем новую запись в базу данных
+                db.Notes.Add(note);
+                db.SaveChanges();
 
-            // Очищаем поля после сохранения
-            txtNote.Text = "";
-            txtTime.Text = "";
+                // Очищаем поля после сохранения
+                txtNote.Text = "";
+                txtTime.Text = "";
 
-            LoadDataGridData();
+                LoadDataGridData();
+            }
+
+            //Создание обьекта подсказки
+            ToolTip toolTip = new ToolTip();
+            toolTip.Content = "Сохранить запись";
+
+            //Установка подсказки для кнопки SaveButton
+            SaveButton.ToolTip = toolTip;
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(dataGrid.SelectedItem != null)
+            {
+                Note selectedNote = (Note)dataGrid.SelectedItem;
+                db.Notes.Remove(selectedNote);
+                db.SaveChanges();
+                LoadDataGridData();
+            }
+            else
+            {
+                MessageBox.Show("Выберите запись для удаления");
+            }
         }
     }
 }
